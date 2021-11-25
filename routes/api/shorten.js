@@ -4,11 +4,11 @@ const uniqid = require("uniqid");
 //Load models
 const URL = require("../../model/url");
 
-router.use((req,res,next) => {
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+// router.use((req,res,next) => {
+//     // res.header("Access-Control-Allow-Origin","*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// })
 //Route GET /api/shorten/test
 //Desc Test API end point
 //access Public
@@ -30,6 +30,7 @@ router.post("/", (req, res) => {
     URL.findOne({ url: urlData }, (err, doc) => {
         if (doc) {
             console.log("Entry found in db");
+            // res.send({message:"Entry found in DB"});
         } else {
             console.log("This is New url");
             const webAddress = new URL({
