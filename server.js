@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const cors = require("cors");
 //Load URL model
 const URL = require("./model/url");
 
@@ -13,7 +13,7 @@ const app = express();
 //body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
-
+app.use(cors());
 //database key
 const db = require("./config/keys").mongoURI;
 
